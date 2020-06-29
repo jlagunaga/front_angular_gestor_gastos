@@ -1,0 +1,89 @@
+<div class="container" *ngIf="objUsuario">
+  <h1>{{titulo}}</h1>
+
+ <span id="alerta"></span>
+
+  <form class="row row-cols-2" #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)" enctype="multipart / form-data ">
+    <div class="col">
+
+      <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <input type="text" class="form-control" name="Nombre" aria-describedby="emailHelp" pattern="[a-z]"
+          #name="ngModel" [(ngModel)]="objUsuario.NOMBRES">
+      </div>
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" class="form-control" name="apellidos" aria-describedby="emailHelp" pattern="[a-z]"
+          #apellido="ngModel" [(ngModel)]="objUsuario.APELLIDOS">
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" 
+          #email="ngModel" [(ngModel)]="objUsuario.EMAIL">
+      </div>
+
+      <div class="form-group">
+        <label for="cel">Cel:</label>
+        <input type="number" class="form-control" name="cel" aria-describedby="emailHelp" 
+          #cel="ngModel" min="9" max="9" [(ngModel)]="objUsuario.CEL" >
+      </div>
+
+      <div class=" form-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" class="form-control" name="usuario" aria-describedby="emailHelp" #usuario="ngModel"
+          [(ngModel)]="objUsuario.USUARIO">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" aria-describedby="emailHelp" #password="ngModel"
+          [(ngModel)]="objUsuario.PASSWORD">
+      </div>
+      <div class="form-group">
+        <label for="estado">Estado</label>
+        <select name="estado" id="" class="form-control" #estado="ngModel" [(ngModel)]="objUsuario.ESTADO">
+          <option *ngIf="objUsuario.ESTADO!='';else Opc1 " selected>{{objUsuario.ESTADO}}</option>
+          <ng-template #Opc1>
+            <option selected>Seleccionar...</option>
+          </ng-template>
+          <option values="activo">Activo</option>
+          <option values="inactivo">Inactivo</option>
+          <option values="suspendido">Suspendido</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col">
+
+      <div class="form-group">
+        <label for="tipoUsu">Tipo Usuario</label>
+        <select name="tipoUsu" class="form-control" #tipoUsu="ngModel" [(ngModel)]="objUsuario.TIPO_USU" >
+          <option *ngIf="objUsuario.TIPO_USU!='';else Opc2 " selected>{{objUsuario.TIPO_USU}}</option>
+          <ng-template #Opc2>
+            <option selected>Seleccionar...</option>
+          </ng-template>
+          <option values="administrador_sistema">Administrador Sistemas</option>
+          <option values="usuario_licencia">Usuario Licencia</option>
+          <option values="administrador_grupo">Administrador Grupo</option>
+          <option values="usuario_gratuito">Usuario Gratuito</option>
+          <option values="USUARIO DE PRUEBA">Usuario de Prueba</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="img">Seleccionar Usuario</label>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" name="img"  (change)="fileChange($event)" >
+          <label class="custom-file-label" for="img">Seleccionar Archivo</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="observacion">Observacion</label>
+        <textarea class="form-control" name="observacion" rows="3" #observacion="ngModel" [(ngModel)]="objUsuario.OBSERVACION"></textarea>
+      </div>
+      <button type="submit" class="btn btn-info">Guardar</button>
+    </div>
+  </form>
+
+</div>

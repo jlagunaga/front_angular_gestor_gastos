@@ -1,0 +1,36 @@
+<div class="container">
+    <h1> Gestion Categoria Tienda</h1>
+    <div class="btn-Nuevo">
+      <a [routerLink]="['/serv-finan-new']" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Nuevo</a>
+    </div>
+    <div class="row-cols-2 table-responsive-lg">
+      <table class="table table-bordered table-hover table-dark col-md-6 table-sm">
+        <thead>
+          <tr>
+            <th scope="col">*</th>
+            <th scope="col">NOMBRES</th>
+            <th scope="col">DESCRIPCION</th>
+            <th scope="col">EDITAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ServFinan of  arrServFinan | paginate: { itemsPerPage: 10, currentPage: pageActual }; let indice=index ">
+            <th scope="row" class="align-middle">{{indice+1}}</th>
+            <td class="align-middle">{{ServFinan.NOMBRE_SERV_FINAN}}</td>
+            <td class="align-middle">{{ServFinan.DESCRIPCION}}</td>
+  
+            <td class="align-middle img-table" >
+              <a [routerLink]="['/serv-finan-edit/'+ServFinan.ID_SERVICIO_FINANCIERO]"  >
+                <img src='../../../assets/img/user-edit.png' class="img-table">
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+      
+    </div>
+  
+  
+  </div>
+  

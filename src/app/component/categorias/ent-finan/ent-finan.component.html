@@ -1,0 +1,33 @@
+<div class="container">
+  <h1> Gestion Categoria Tienda</h1>
+  <div class="btn-Nuevo">
+    <a [routerLink]="['/cate-ent-Finan-new']" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Nuevo</a>
+  </div>
+  <div class="row-cols-2 table-responsive-lg">
+    <table class="table table-bordered table-hover table-dark col-md-6 table-sm">
+      <thead>
+        <tr>
+          <th scope="col">*</th>
+          <th scope="col">NOMBRES</th>
+          <th scope="col">EDITAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cate_ent_finan of  arrCate_Ent_Finan | paginate: { itemsPerPage: 10, currentPage: pageActual }; let indice=index ">
+          <th scope="row" class="align-middle">{{indice+1}}</th>
+          <td class="align-middle">{{cate_ent_finan.NOMBRE_CATEGORIA}}</td>
+
+          <td class="align-middle img-table" >
+            <a [routerLink]="['/cate-ent-Finan-edit/'+cate_ent_finan.ID_CAT_FINANCIERA]"  >
+              <img src='../../../assets/img/user-edit.png' class="img-table">
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+    
+  </div>
+
+
+</div>

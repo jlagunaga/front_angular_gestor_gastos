@@ -1,0 +1,19 @@
+<div class="container" *ngIf="objCateTienda">
+    <h1>{{titulo}}</h1>
+  
+   <span id="alerta"></span>
+  
+    <form class="row row-cols-2" #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)" enctype="multipart / form-data ">
+      <div class="col">
+  
+        <div class="form-group">
+          <label for="Nombre">Nombre</label>
+          <input type="text" class="form-control" name="Nombre" aria-describedby="emailHelp" required pattern="[a-z]"
+            #name="ngModel" [(ngModel)]="objCateTienda.NOMBRE_CAT_TIENDA">
+        </div>
+        
+          <button type="submit" class="btn btn-info">Guardar</button>
+      </div>
+    </form>
+  </div>
+  

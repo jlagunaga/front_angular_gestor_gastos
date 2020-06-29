@@ -24,9 +24,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/styles.css",
+              "./node_modules/boostrap/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.slim.min.js",
+              "./node_modules/boostrap/js/bootstrap.min.js",
+              "./node_modules/boostrap/js/popper.min.js",
+              "./node_modules/boostrap/js/bootstrap.bundle.min.js",
+              "./node_modules/boostrap/js/bootstrap.bundle.js"              
+            ]
           },
           "configurations": {
             "production": {
@@ -88,9 +95,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/styles.css",
+              "./node_modules/boostrap/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.slim.min.js",
+              "./node_modules/boostrap/js/bootstrap.min.js",
+              "./node_modules/boostrap/js/popper.min.js",
+              "./node_modules/boostrap/js/bootstrap.bundle.min.js",
+              "./node_modules/boostrap/js/bootstrap.bundle.js"           
+            ]
           }
         },
         "lint": {
@@ -119,6 +133,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PyAngular"
+    }
+  },
+  "defaultProject": "PyAngular",
+  "cli": {
+    "analytics": false
+  }
 }

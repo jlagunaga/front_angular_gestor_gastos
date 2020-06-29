@@ -1,0 +1,54 @@
+<div class="container">
+  <h1> Gestion de Usuarios</h1>
+  <div class="btn-Nuevo">
+    <a [routerLink]="['/usuario-new']" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Nuevo</a>
+  </div>
+  <div class="row-cols-2 table-responsive-lg">
+    <table class="table table-bordered table-hover table-dark col-md-6 ">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">NOMBRES</th>
+          <th scope="col">USUARIO</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">CEL</th>
+          <th scope="col">ESTADO</th>
+          <th scope="col">TIPO_USU</th>
+          <th scope="col">IMAGEN</th>
+          <th scope="col">EDITAR</th>
+          <th scope="col">ELIMINAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Usuarios of arr_usuarios | paginate: { itemsPerPage: 10, currentPage: pageActual }; let indice=index ">
+          <th scope="row" class="align-middle">{{indice}}</th>
+          <td class="align-middle">{{get_small_Name_LastName(Usuarios.NOMBRES.trim(), Usuarios.APELLIDOS.trim())}} </td>
+          <td class="align-middle">{{Usuarios.USUARIO}}</td>
+          <td class="align-middle">{{Usuarios.EMAIL}}</td>
+          <td class="align-middle">{{Usuarios.CEL}}</td>
+          <td class="align-middle">{{Usuarios.ESTADO}}</td>
+          <td class="align-middle">{{Usuarios.TIPO_USU}}</td>
+          <td class="align-middle" >
+            <a href="javascript:void(0)" >
+              <img [src]="Usuarios.IMAGEN" class="img-table">
+            </a>
+          </td>
+          <td class="align-middle" >
+            <a [routerLink]="['/usuario-edit/'+Usuarios.ID_USUARIO]" >
+              <img src='../../../assets/img/user-edit.png' class="table-icon">
+            </a>
+          </td>
+          <td class="align-middle">
+            <a  href="javascript:void(0)" (click)="desactivarUsuario(Usuarios.ID_USUARIO)" >
+              <img src='../../../assets/img/eliminar.png' class="table-icon">
+            </a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+  </div>
+
+
+</div>

@@ -1,0 +1,57 @@
+/* content de usuarios  */
+a .img-table {
+    width: 50px;
+    height: 30px;
+}
+
+a .img-table:hover {
+    width: 60px;
+    height: 40px;
+    transition: 300ms;
+} 
+
+
+a .table-icon {
+    width: 40px;
+    height: 30px;
+    
+}
+
+a .table-icon:hover {
+    width: 50px;
+    height: 40px;
+    transition: 300ms;
+} 
+
+/*  tabla pequeña */
+.table-sm a .img-table {
+    width: 20px;
+    height: 20px;
+    margin-left: 30%;
+}
+
+.table-sm  a .img-table:hover {
+    width: 30px;
+    height: 30px;
+    margin-left: 30%;
+    transition: 300ms;
+} 
+
+
+footer{
+    text-align: center;
+    color:rgb(66, 73, 73,0.8);
+    margin: 30px ;
+}
+
+h1{
+padding-bottom: 20px;
+padding-top: 20px;
+}
+
+.btn-Nuevo{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;    
+}
+
